@@ -3,7 +3,7 @@ import pathlib
 from pathlib import Path
 
 
-PDF_FOLDER_PATH = 'data\\raw\\corpus\\pdf'
+PDF_FOLDER_PATH = 'data/raw/corpus/pdf'
 
 
 

@@ -17,12 +17,20 @@ def process(input_path, output_path):
         data = data.replace("గ","j")
         data = data.replace("ǳ", "dz")
 
+        # removing footnotes start of a line with small number then some sort of description with different characters including newlines, then the ending in square brackets written either as
+        # [przypis edytorski] or [przypis autorski] however it could be split across different lines like
+        # [przyp-
+        #-is eydtorski] and such with trailing whitespace
         footnote_pattern = re.compile(
-            r'[¹²³⁴⁵⁶⁷⁸⁹⁰]+[\s\S]*?\[[\s\S]*?\]',
+            r'^[¹²³⁴⁵⁶⁷⁸⁹⁰]+[\s\S]*?\[[\s\S]+?\]\s*',
             flags=re.MULTILINE
         )
 
         data = footnote_pattern.sub("", data)
+        tiny_digit_pattern = re.compile(r'[¹²³⁴⁵⁶⁷⁸⁹⁰]+',
+                                        flags=re.MULTILINE)
+        data = tiny_digit_pattern.sub("", data)
+        data = data[200:-1839]
         print(data)
 
 
@@ -31,4 +39,4 @@ files = list(p.glob('*.txt'))
 # for file in files:
     # print(str(file))
 
-process(RAW_TXT_FOLDER_PATH + "\\renegat.txt", "")
+process(RAW_TXT_FOLDER_PATH + "/renegat.txt", "")
