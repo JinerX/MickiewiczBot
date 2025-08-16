@@ -5,5 +5,6 @@ CLEAN_TXT_FOLDER_PATH = 'data\\cleaned'
 TEST_FOLDER_PATH = 'data\\test'
 
 REMOVED = (-1,-1)
+SKIP = -1
 START = "<S>"
 END = "<E>"

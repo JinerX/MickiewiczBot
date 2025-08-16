@@ -1,6 +1,6 @@
 from pathlib import Path
 import re
-from constants import RAW_TXT_FOLDER_PATH, CLEAN_TXT_FOLDER_PATH
+from data.constants import RAW_TXT_FOLDER_PATH, CLEAN_TXT_FOLDER_PATH
 
 p = Path(RAW_TXT_FOLDER_PATH)
 
